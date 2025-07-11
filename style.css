@@ -246,11 +246,18 @@ body {
     border: 1px solid var(--border-primary);
 }
 
-.address-info h4 {
+.store-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.store-header h4 {
     font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 15px;
     color: var(--gold-primary);
+    margin: 0;
 }
 
 .address-info p {
@@ -295,22 +302,17 @@ body {
     box-shadow: var(--shadow-hover);
 }
 
-.contact-detail {
-    margin-top: 8px;
-    text-align: right;
-}
-
 .whatsapp-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     background: rgba(37, 211, 102, 0.1);
     color: #25D366;
     border-radius: 50%;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     transition: all 0.3s ease;
     opacity: 0.7;
 }
@@ -367,22 +369,13 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--bg-card);
     color: var(--gold-primary);
-    border: 1px solid var(--border-primary);
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
     text-decoration: none;
     font-size: 1rem;
+    font-weight: 400;
 }
 
 .website-btn:hover {
-    background: rgba(184, 134, 11, 0.15);
-    border-color: var(--border-hover);
-    box-shadow: var(--shadow-hover);
     color: var(--gold-secondary);
 }
 
