@@ -46,10 +46,16 @@ document.addEventListener('DOMContentLoaded', function() {
         
         directionsButtons.forEach((button, index) => {
             button.addEventListener('click', function() {
+                const stores = ['Cajuru', 'Uberaba'];
                 const addresses = [
                     'Rua João Crysóstomo da Rosa, 258, Cajuru',
                     'Rua Eunice Bettini Bartoszeck, 1122, Uberaba'
                 ];
+                
+                // Analytics: Track directions click
+                if (window.va) {
+                    window.va('track', 'Directions Click', { store: stores[index] });
+                }
                 
                 const address = addresses[index];
                 const encodedAddress = encodeURIComponent(address);
@@ -73,12 +79,21 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupWhatsAppButtons() {
         const whatsappLinks = document.querySelectorAll('.whatsapp-link');
         
-        whatsappLinks.forEach((link) => {
+        whatsappLinks.forEach((link, index) => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
+                const stores = ['Cajuru', 'Uberaba'];
                 const phoneNumber = this.getAttribute('data-phone');
                 const message = encodeURIComponent('Olá! Vi a promoção no Instagram e gostaria de saber mais detalhes.');
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+                
+                // Analytics: Track WhatsApp click
+                if (window.va) {
+                    window.va('track', 'WhatsApp Click', { 
+                        store: stores[index],
+                        phone: phoneNumber 
+                    });
+                }
                 
                 window.open(whatsappUrl, '_blank');
             });
@@ -227,14 +242,44 @@ document.addEventListener('DOMContentLoaded', function() {
         lazyElements.forEach(element => lazyObserver.observe(element));
     }
     
+    // Funcionalidade do link do site oficial
+    function setupWebsiteButton() {
+        const websiteBtn = document.querySelector('.website-btn');
+        
+        if (websiteBtn) {
+            websiteBtn.addEventListener('click', function() {
+                // Analytics: Track website click
+                if (window.va) {
+                    window.va('track', 'Website Click', { 
+                        destination: 'casadecarnesmarumbi.vercel.app' 
+                    });
+                }
+            });
+        }
+    }
+    
+    // Analytics: Track page view
+    function trackPageView() {
+        if (window.va) {
+            window.va('track', 'Landing Page View', { 
+                page: 'Oferta Exclusiva',
+                source: 'Instagram Campaign' 
+            });
+        }
+    }
+    
     // Inicializar todas as funcionalidades
     animateOnScroll();
     parallaxEffect();
     setupDirectionsButtons();
     setupWhatsAppButtons();
+    setupWebsiteButton();
     animatedCounter();
     smoothScroll();
     lazyLoadElements();
+    
+    // Track page view
+    trackPageView();
     
     // Partículas desabilitadas para visual mais clean
     // if (window.innerWidth > 768) {
