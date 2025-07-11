@@ -69,26 +69,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Funcionalidade dos botões WhatsApp
+    // Funcionalidade dos links WhatsApp
     function setupWhatsAppButtons() {
-        const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
+        const whatsappLinks = document.querySelectorAll('.whatsapp-link');
         
-        whatsappButtons.forEach((button) => {
-            button.addEventListener('click', function() {
+        whatsappLinks.forEach((link) => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
                 const phoneNumber = this.getAttribute('data-phone');
                 const message = encodeURIComponent('Olá! Vi a promoção no Instagram e gostaria de saber mais detalhes.');
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
                 
-                // Animação do botão
-                button.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    button.style.transform = 'scale(1.05)';
-                    window.open(whatsappUrl, '_blank');
-                }, 150);
-                
-                setTimeout(() => {
-                    button.style.transform = 'scale(1)';
-                }, 300);
+                window.open(whatsappUrl, '_blank');
             });
         });
     }

@@ -271,14 +271,7 @@ body {
     border: 1px solid var(--border-primary);
 }
 
-.contact-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.directions-btn, .whatsapp-btn {
+.directions-btn {
     background: var(--bg-card);
     color: var(--gold-light);
     border: 1px solid var(--border-primary);
@@ -292,25 +285,40 @@ body {
     gap: 8px;
     font-size: 0.9rem;
     text-decoration: none;
-    flex: 1;
-    min-width: 120px;
+    width: 100%;
+    justify-content: center;
 }
 
-.directions-btn:hover, .whatsapp-btn:hover {
+.directions-btn:hover {
     background: rgba(184, 134, 11, 0.15);
     border-color: var(--border-hover);
     box-shadow: var(--shadow-hover);
 }
 
-.whatsapp-btn {
-    color: #25D366;
-    border-color: rgba(37, 211, 102, 0.3);
+.contact-detail {
+    margin-top: 8px;
+    text-align: right;
 }
 
-.whatsapp-btn:hover {
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
     background: rgba(37, 211, 102, 0.1);
-    border-color: rgba(37, 211, 102, 0.5);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2);
+    color: #25D366;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.whatsapp-link:hover {
+    opacity: 1;
+    background: rgba(37, 211, 102, 0.2);
+    transform: scale(1.1);
 }
 
 /* Footer CTA */
@@ -390,9 +398,6 @@ body {
 .social-reminder i {
     color: var(--instagram-pink);
     font-size: 1.5rem;
-    position: relative;
-    bottom: 14px;
-    left: 8px; 
 }
 
 /* Background Elements */
@@ -479,14 +484,11 @@ body {
         max-width: 280px;
     }
     
-    .contact-buttons {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .directions-btn, .whatsapp-btn {
-        min-width: auto;
-        flex: none;
+
+    .social-reminder i {
+        position: relative;
+        bottom: 14px;
+        left: 8px; 
     }
 }
 
@@ -509,5 +511,10 @@ body {
     
     .logo-image {
         max-width: 250px;
+    }
+    .social-reminder i {
+        position: relative;
+        bottom: 14px;
+        left: 8px; 
     }
 } 
