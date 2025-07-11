@@ -271,7 +271,14 @@ body {
     border: 1px solid var(--border-primary);
 }
 
-.directions-btn {
+.contact-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.directions-btn, .whatsapp-btn {
     background: var(--bg-card);
     color: var(--gold-light);
     border: 1px solid var(--border-primary);
@@ -284,12 +291,26 @@ body {
     align-items: center;
     gap: 8px;
     font-size: 0.9rem;
+    text-decoration: none;
+    flex: 1;
+    min-width: 120px;
 }
 
-.directions-btn:hover {
+.directions-btn:hover, .whatsapp-btn:hover {
     background: rgba(184, 134, 11, 0.15);
     border-color: var(--border-hover);
     box-shadow: var(--shadow-hover);
+}
+
+.whatsapp-btn {
+    color: #25D366;
+    border-color: rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background: rgba(37, 211, 102, 0.1);
+    border-color: rgba(37, 211, 102, 0.5);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2);
 }
 
 /* Footer CTA */
@@ -328,6 +349,33 @@ body {
     margin-bottom: 25px;
     color: var(--text-muted);
     font-style: italic;
+}
+
+.website-link {
+    margin: 20px 0;
+}
+
+.website-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-card);
+    color: var(--gold-primary);
+    border: 1px solid var(--border-primary);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.website-btn:hover {
+    background: rgba(184, 134, 11, 0.15);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-hover);
+    color: var(--gold-secondary);
 }
 
 .social-reminder {
@@ -429,6 +477,16 @@ body {
     
     .logo-image {
         max-width: 280px;
+    }
+    
+    .contact-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .directions-btn, .whatsapp-btn {
+        min-width: auto;
+        flex: none;
     }
 }
 

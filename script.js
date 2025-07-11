@@ -69,6 +69,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Funcionalidade dos botões WhatsApp
+    function setupWhatsAppButtons() {
+        const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
+        
+        whatsappButtons.forEach((button) => {
+            button.addEventListener('click', function() {
+                const phoneNumber = this.getAttribute('data-phone');
+                const message = encodeURIComponent('Olá! Vi a promoção no Instagram e gostaria de saber mais detalhes.');
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+                
+                // Animação do botão
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = 'scale(1.05)';
+                    window.open(whatsappUrl, '_blank');
+                }, 150);
+                
+                setTimeout(() => {
+                    button.style.transform = 'scale(1)';
+                }, 300);
+            });
+        });
+    }
+    
     // Efeito de typing no título principal
     function typingEffect() {
         const mainTitle = document.querySelector('.main-title');
@@ -215,6 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
     parallaxEffect();
     setupDirectionsButtons();
+    setupWhatsAppButtons();
     animatedCounter();
     smoothScroll();
     lazyLoadElements();
