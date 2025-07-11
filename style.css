@@ -246,18 +246,11 @@ body {
     border: 1px solid var(--border-primary);
 }
 
-.store-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
-.store-header h4 {
+.address-info h4 {
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--gold-primary);
-    margin: 0;
+    margin-bottom: 15px;
 }
 
 .address-info p {
@@ -303,6 +296,9 @@ body {
 }
 
 .whatsapp-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -314,7 +310,8 @@ body {
     text-decoration: none;
     font-size: 0.8rem;
     transition: all 0.3s ease;
-    opacity: 0.7;
+    opacity: 0.6;
+    z-index: 3;
 }
 
 .whatsapp-link:hover {
